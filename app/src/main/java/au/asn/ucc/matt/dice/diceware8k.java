@@ -5,10 +5,14 @@ import java.security.SecureRandom;
 /**
  * Created by matt on Sat 28/2/15.
  */
-public class diceware8k {
+public class Diceware8k {
 
-    public static String[] generate(int number) {
-        SecureRandom sr = new SecureRandom();
+    private SecureRandom sr;
+
+    public Diceware8k() {
+        sr = new SecureRandom();
+    }
+    public String[] generate(int number) {
         String[] words = new String[number];
 
         for (int i = 0; i < number; i++) {
