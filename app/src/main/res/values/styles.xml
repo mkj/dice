@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="Theme.MyTheme" parent="Theme.AppCompat.Light">
         <!-- customize the color palette -->
-        <item name="colorPrimary">#ff6600</item>
-        <item name="colorPrimaryDark">#ee5500</item>
-        <item name="colorAccent">#ffee00</item>
-    </style>
+        <item name="colorPrimary">#3C4B9B</item>
+        <item name="colorPrimaryDark">#1C2B9B</item>
+        <item name="colorAccent">#576DE1</item>
+    </style>3C4B9B
 
 
 </resources>

@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class Dice extends ActionBarActivity {
     Diceware8k dw;
     private static final String PREFS_NAME = "dice";
     private static final int DEFAULT_NUMBER = 5;
+    private static final int BITS_PER_WORD = 13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class Dice extends ActionBarActivity {
                 generate(picker);
             }
         });
+        picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+
+
 
         dw = new Diceware8k();
 
@@ -76,8 +81,8 @@ public class Dice extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_dice, menu);
-        return false;
+        getMenuInflater().inflate(R.menu.menu_dice, menu);
+        return true;
     }
 
     @Override
@@ -88,7 +93,9 @@ public class Dice extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            Intent about_intent = new Intent(this, AboutActivity.class);
+            startActivity(about_intent);
             return true;
         }
 
@@ -100,6 +107,8 @@ public class Dice extends ActionBarActivity {
         current_words = dw.generate(number);
         String text = Diceware8k.join(current_words, "\n");
         word_text.setText(text);
+        TextView bits_label = (TextView)findViewById(R.id.bits_label);
+        bits_label.setText(BITS_PER_WORD*number + " bits");
     }
 
     public void copy_words(View view) {
