@@ -2,4 +2,4 @@ Generates secure memorisable passwords, using the excellent [diceware](http://wo
 
 Built version at https://matt.ucc.asn.au/dice.apk
 
-![screenshot](screenshot1.jpg)
+![screenshot](screenshot1.png)
